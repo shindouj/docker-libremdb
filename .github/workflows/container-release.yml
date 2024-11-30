@@ -39,7 +39,7 @@ jobs:
 
     - name: Check Out Repo
       if: steps.cache.outputs.cache-hit != 'true'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     
     - name: login into github package registry
       if: steps.cache.outputs.cache-hit != 'true'
