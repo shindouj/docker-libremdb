@@ -28,7 +28,7 @@ jobs:
     # arm64 specific
     - name: Set up QEMU
       if: steps.cache.outputs.cache-hit != 'true'
-      uses: docker/setup-qemu-action@v1
+      uses: docker/setup-qemu-action@v3
       with:
         platforms: arm64
 
