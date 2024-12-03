@@ -57,7 +57,7 @@ jobs:
         build-args: release=1
     
     - name: Set cache key
-      if: steps.cache.outputs.cache-hit != true
+      if: steps.cache.outputs.cache-hit != 'true'
       run: echo "done" > libremdb-built
         
   workflow-keepalive:
