@@ -16,6 +16,17 @@ services:
       - "AXIOS_LANGUAGE=en-US,en;q=0.5" # Change to get other language results
       - "REDIS_URL=libremdb-redis:6379"
       - "USE_REDIS=true"
+    user: nobody
+    read_only: true
+    tmpfs:
+      - /app/.next/cache/:size=10M,mode=0770,uid=65534,gid=65534,noexec,nosuid,nodev
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    networks:
+      - libremdb
+    
   libremdb-redis:
     container_name: libremdb-redis
     image: redis:alpine
@@ -25,3 +36,8 @@ services:
       interval: 30s
       timeout: 5s
       retries: 2
+    networks:
+      - libremdb
+
+networks:
+  libremdb:
