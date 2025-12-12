@@ -19,7 +19,7 @@ jobs:
         echo "commit=$(git ls-remote https://github.com/zyachel/libremdb.git | head -n1 | awk '{print $1;}')" >> $GITHUB_OUTPUT
       shell: bash
 
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: cache
       with:
         path: libremdb-built
